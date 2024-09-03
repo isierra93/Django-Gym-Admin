@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    App Clientes: Listado de Clientes
+{% endblock header %}
+
+{% block main %}
+    <form action="{% url 'clientes:cliente_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar..." />
+        <button type="submit">Buscar</button>
+        <button>
+            <a href="{% url 'clientes:cliente_create' %}">Crear Registro</a>
+        </button>
+    </form>
+    <ul>
+        {% for object in object_list %}
+            <li>{{object.nombre}} - Tel: {{object.telefono}}</li>
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+    <button>
+        <a href="{% url 'clientes:index' %}">Volver</a>
+    </button>
+{% endblock main %}
