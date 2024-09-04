@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    App Entrenadores: Listado de Entrenadores
+{% endblock header %}
+
+{% block main %}
+    <form action="{% url 'entrenadores:entrenador_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button>
+            <a href="#">
+                Buscar
+            </a>
+        </button>
+        <button>
+            <a href="{% url 'entrenadores:entrenador_create' %}">
+                Crear Entrenadores
+            </a>
+        </button>
+    </form>
+    <ul>
+        {% for object in object_list %}
+            <li>{{object.nombre}} - {{object.especialidad}}</li>
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+    <button>
+        <a href="{% url 'entrenadores:index' %}">
+            Volver
+        </a>
+    </button>
+{% endblock main %}

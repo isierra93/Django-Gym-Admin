@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    App Entrenadores
+{% endblock header %}
+
+{% block main %}
+    <button><a href="{% url 'entrenadores:entrenador_list' %}">Listar Entrenadores</a></button>
+    <button><a href="{% url 'entrenadores:entrenador_create' %}">Crear Entrenadores</a></button>
+{% endblock main %}
