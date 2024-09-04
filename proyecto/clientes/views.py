@@ -25,4 +25,4 @@ def cliente_create(request):
         if form.is_valid():
             form.save()
             return redirect('clientes:cliente_list')
-    return render(request, 'clientes/clientes_form.html', {'form': form})
+    return render(request, 'clientes/cliente_form.html', {'form': form})
