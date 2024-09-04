@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Entrenadores: Crear Entrenadores
+    App Clases: Crear Clases
 {% endblock header %}
 
 {% block main %}
@@ -13,8 +13,8 @@
         </button>
     </form>
     <button>
-        <a href="{% url 'entrenadores:index' %}">
-            Volver
+        <a href="{% url 'entrenadores:clase_list' %}">
+            Volver a Clases
         </a>
     </button>
 {% endblock main %}

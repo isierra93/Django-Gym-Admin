@@ -11,3 +11,4 @@ class ClaseForm(forms.ModelForm):
     class Meta:
         model = Clase
         fields = '__all__'
+        widgets = {'horario' : forms.TimeInput(attrs={'type': 'time'})}

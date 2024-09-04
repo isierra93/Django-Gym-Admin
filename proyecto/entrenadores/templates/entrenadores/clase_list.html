@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    App Clases: Listado de Clases
+{% endblock header %}
+
+{% block main %}
+    <form action="{% url 'entrenadores:clase_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button>
+            <a href="#">
+                Buscar
+            </a>
+        </button>
+        <button>
+            <a href="{% url 'entrenadores:clase_create' %}">
+                Crear Clase
+            </a>
+        </button>
+    </form>
+    <ul>
+        {% for object in object_list %}
+            <li>{{object.nombre}} - {{object.horario}}</li>
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+    <button>
+        <a href="{% url 'entrenadores:index' %}">
+            Volver
+        </a>
+    </button>
+{% endblock main %}
