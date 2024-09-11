@@ -5,7 +5,7 @@ from . import views
 app_name = 'clientes'
 
 urlpatterns = [
-    path('', views.index, name='index' ),
-    path('cliente/list', views.cliente_list , name='cliente_list'),
-    path('cliente/create', views.cliente_create, name='cliente_create')
+    path('', views.IndexView.as_view(), name='index' ),
+    path('cliente/list', views.ClienteList.as_view() , name='cliente_list'),
+    path('cliente/create', views.ClienteCreate.as_view(), name='cliente_create')
 ]
