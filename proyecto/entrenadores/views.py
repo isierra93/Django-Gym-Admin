@@ -1,48 +1,41 @@
+from django.views.generic import View, ListView, CreateView
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Entrenador, Clase
 from .forms import EntrenadorForm, ClaseForm
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'entrenadores/index.html')
+class IndexView(View):
+    def get(self, request):
+        return render(request, 'entrenadores/index.html')
 
-def entrenador_list(request):
-    q = request.GET.get('q')
-    if q:
-        query = Entrenador.objects.filter(nombre__icontains=q)
-    else:
-        query = Entrenador.objects.all()
-    context = {'object_list': query}
-    return render(request, 'entrenadores/entrenador_list.html', context)
+class EntrenadorList(ListView):
+    model = Entrenador
 
-def entrenador_create(request):
-    if request.method == 'GET':
-        form = EntrenadorForm()
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            return queryset.filter(nombre__icontains=q)
+        return queryset
+    
+class EntrenadorCreate(CreateView):
+    model = Entrenador
+    form_class = EntrenadorForm
+    reverse_lazy = 'entrenadores:entrenador_list'
 
-    if request.method == 'POST':
-        form = EntrenadorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('entrenadores:entrenador_list')
-    return render(request, 'entrenadores/entrenador_form.html', {'form': form} )
+class ClaseList(ListView):
+    model = Clase
 
-def clase_list(request):
-    q = request.GET.get('q')
-    if q:
-        query = Clase.objects.filter(nombre__icontains=q)
-    else:
-        query = Clase.objects.all()
-    context = {'object_list': query}
-    return render(request, 'entrenadores/clase_list.html', context)
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            return queryset.filter(nombre__icontains=q)
+        return queryset
 
-def clase_create(request):
-    if request.method == 'GET':
-        form = ClaseForm()
-
-    if request.method == 'POST':
-        form = ClaseForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('entrenadores:clase_list')
-    return render(request, 'entrenadores/clase_form.html', {'form': form})
+class ClaseCreate(CreateView):
+    model = Clase
+    form_class = ClaseForm
+    success_url = reverse_lazy('entrenadores:clase_list')
