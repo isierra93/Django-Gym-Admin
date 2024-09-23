@@ -6,3 +6,7 @@ from django.shortcuts import render
 class IndexView(View):
     def get(self, request):
         return render(request, 'core/index.html')
+    
+class AboutView(View):
+    def get(self, request):
+        return render(request, 'core/about.html')
