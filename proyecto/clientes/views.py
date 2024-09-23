@@ -1,5 +1,5 @@
-from django.views.generic import View, ListView, CreateView
-from django.shortcuts import render, redirect
+from django.views.generic import View, ListView, CreateView, DeleteView, UpdateView
+from django.shortcuts import render
 from django.urls import reverse_lazy
 
 from .models import Cliente
@@ -22,6 +22,15 @@ class ClienteList(ListView):
         return queryset
 
 class ClienteCreate(CreateView):
+    model = Cliente
+    form_class = ClienteForm
+    success_url = reverse_lazy('clientes:cliente_list')
+
+class ClienteDelete(DeleteView):
+    model = Cliente
+    success_url = reverse_lazy('clientes:cliente_list')
+
+class ClienteUpdate(UpdateView):
     model = Cliente
     form_class = ClienteForm
     success_url = reverse_lazy('clientes:cliente_list')

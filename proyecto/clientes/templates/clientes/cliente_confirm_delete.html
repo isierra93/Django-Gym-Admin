@@ -1,20 +1,17 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Clientes: Crear Cliente
+    Clientes: Borrar Cliente {{object.nombre}}
 {% endblock header %}
 
 {% block main %}
+    <p>¿Desea borrar a {{object.apellido}}, {{object.nombre}}?</p>
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
         <button type="submit">
-            Guardar
+            Aceptar
         </button>
+
     </form>
-    <button>
-        <a href="{% url 'clientes:index' %}">
-            Volver
-        </a>
-    </button>
+    {% include 'clientes/partials/volver_cliente_list.html' %}
 {% endblock main %}

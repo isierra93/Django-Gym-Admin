@@ -14,7 +14,11 @@
     </form>
     <ul>
         {% for object in object_list %}
-            <li>{{object.nombre}} - Tel: {{object.telefono}}</li>
+            <li>{{object.nombre}} - Tel: {{object.telefono}} - 
+                <a href="{% url 'clientes:cliente_update' object.id %}">Actualizar</a> -
+                <a href="{% url 'clientes:cliente_delete' object.id %}">Borrar</a> -
+                <a href="#">Ver mas.</a>
+            </li>
         {% empty %}
             <p>No hay registros</p>
         {% endfor %}
