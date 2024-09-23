@@ -20,7 +20,11 @@
     </form>
     <ul>
         {% for object in object_list %}
-            <li>{{object.nombre}} - {{object.especialidad}}</li>
+            <li>{{object.nombre}} - {{object.especialidad}}
+                <a href="{% url 'entrenadores:entrenador_update' object.id %}">Actualizar</a> -
+                <a href="{% url 'entrenadores:entrenador_delete' object.id %}">Borrar</a> -
+                <a href="#">Ver mas</a>
+            </li>
         {% empty %}
             <p>No hay registros</p>
         {% endfor %}

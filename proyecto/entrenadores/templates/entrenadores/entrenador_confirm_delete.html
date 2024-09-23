@@ -1,20 +1,20 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    App Entrenadores: Crear Entrenadores
+    Entrenadores: Borrar {{object.nombre}}
 {% endblock header %}
 
 {% block main %}
+    <p>¿Desea borrar a {{object.apellido}}, {{object.nombre}}?</p>
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
         <button type="submit">
-            Guardar
+            Aceptar
         </button>
     </form>
+    <a href="{% url 'entrenadores:entrenador_list' %}">
     <button>
-        <a href="{% url 'entrenadores:index' %}">
-            Volver
-        </a>
+        Cancelar
     </button>
+    </a>
 {% endblock main %}

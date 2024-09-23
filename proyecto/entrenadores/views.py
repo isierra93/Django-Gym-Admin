@@ -1,11 +1,11 @@
-from django.views.generic import View, ListView, CreateView
-from django.shortcuts import render, redirect
+from django.views.generic import View, ListView, CreateView, DeleteView, UpdateView
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from .models import Entrenador, Clase
 from .forms import EntrenadorForm, ClaseForm
 
 # Create your views here.
-
+""" Entrenadores """
 class IndexView(View):
     def get(self, request):
         return render(request, 'entrenadores/index.html')
@@ -23,7 +23,18 @@ class EntrenadorList(ListView):
 class EntrenadorCreate(CreateView):
     model = Entrenador
     form_class = EntrenadorForm
-    reverse_lazy = 'entrenadores:entrenador_list'
+    success_url = reverse_lazy('entrenadores:entrenador_list')
+
+class EntrenadorDelete(DeleteView):
+    model = Entrenador
+    success_url = reverse_lazy('entrenadores:entrenador_list')
+
+class EntrenadorUpdate(UpdateView):
+    model = Entrenador
+    form_class = EntrenadorForm
+    success_url = reverse_lazy('entrenadores:entrenador_list')
+
+""" Clases """
 
 class ClaseList(ListView):
     model = Clase
@@ -36,6 +47,15 @@ class ClaseList(ListView):
         return queryset
 
 class ClaseCreate(CreateView):
+    model = Clase
+    form_class = ClaseForm
+    success_url = reverse_lazy('entrenadores:clase_list')
+
+class ClaseDelete(DeleteView):
+    model = Clase
+    success_url = reverse_lazy('entrenadores:clase_list')
+
+class ClaseUpdate(UpdateView):
     model = Clase
     form_class = ClaseForm
     success_url = reverse_lazy('entrenadores:clase_list')

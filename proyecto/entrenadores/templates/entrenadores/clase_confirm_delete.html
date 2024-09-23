@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clase: Borrar {{object.nombre}}
+{% endblock header %}
+
+{% block main %}
+    <p>¿Desea borrar la clase "{{object.nombre}} {{object.horario}} - Profesor: {{object.entrenador.apellido}}, {{object.entrenador.nombre}}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">
+            Aceptar
+        </button>
+    </form>
+    <a href="{% url 'entrenadores:clase_list' %}">
+    <button>
+        Cancelar
+    </button>
+    </a>
+{% endblock main %}
