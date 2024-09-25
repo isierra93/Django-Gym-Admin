@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Cerrar sesión en Gym Admin
+{% endblock header %}
+
+{% block main %}
+    <p>Has cerrado sesión.</p>
+    <button><a href="{% url 'core:index' %}">Ir al inicio.</a></button>
+{% endblock main %}
