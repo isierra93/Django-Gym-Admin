@@ -1,7 +1,16 @@
 <div>
     <button><a href="{% url 'core:index' %}">Inicio</a></button>
+    <button><a href="{% url 'core:about' %}">Sobre mi.</a></button>
+    {% if user.is_authenticated %}
     <button><a href="{% url 'clientes:index' %}">Clientes</a></button>
     <button><a href="{% url 'entrenadores:index' %}">Entrenadores</a></button>
     <button><a href="{% url 'entrenadores:clase_list' %}">Clases</a></button>
-    <button><a href="{% url 'core:about' %}">Sobre mi.</a></button>
+    <button><a href="#"></a>{{ user.username }}</button>
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesion</button>
+    </form>
+    {% else %}
+    <button><a href="{% url 'accounts:login' %}">Inciar sesion</a></button>
+    {% endif %}
 </div>
