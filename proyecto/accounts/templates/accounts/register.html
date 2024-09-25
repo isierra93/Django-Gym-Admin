@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Inicia sesión en Gym Admin
+    Registrarse en Gym Admin
 {% endblock header %}
 
 {% block main %}
@@ -9,8 +9,7 @@
         {% csrf_token %}
         {{form.as_table}}
         <button type="submit">
-            Inciar sesión
+            Registrarse
         </button>
     </form>
-    <p>¿No tienes una cuenta? <a href="{% url 'accounts:register' %}">Registrate</a></p>
 {% endblock main %}
