@@ -128,4 +128,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('accounts:login')
 LOGIN_REDIRECT_URL = reverse_lazy('core:index')
-#Una vez que cree mi PROFILE ahi si se puede quitar la linea de arriba

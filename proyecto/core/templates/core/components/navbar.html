@@ -5,7 +5,7 @@
     <button><a href="{% url 'clientes:index' %}">Clientes</a></button>
     <button><a href="{% url 'entrenadores:index' %}">Entrenadores</a></button>
     <button><a href="{% url 'entrenadores:clase_list' %}">Clases</a></button>
-    <button><a href="#"></a>{{ user.username }}</button>
+    <button><a href="{% url 'accounts:profile' %}">{{ user.username }}</a></button>
     <form action="{% url 'accounts:logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Cerrar sesion</button>

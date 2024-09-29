@@ -1,9 +1,15 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    PERFIL IN CONSTRUCCION
+    Actualizar perfil en Gym Admin
 {% endblock header %}
 
 {% block main %}
-    
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_table}}
+        <button type="submit">
+            Guardar cambios
+        </button>
+    </form>
 {% endblock main %}
