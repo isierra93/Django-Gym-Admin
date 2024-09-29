@@ -12,9 +12,5 @@
             Aceptar
         </button>
     </form>
-    <a href="{% url 'entrenadores:entrenador_list' %}">
-    <button>
-        Cancelar
-    </button>
-    </a>
+    {% include 'entrenadores/partials/volver_entrenador_list.html' %}
 {% endblock main %}

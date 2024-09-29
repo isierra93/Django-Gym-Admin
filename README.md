@@ -8,7 +8,6 @@ Al ingresar en Clientes o Entrenadores, hay un menu adicional para elegir Ver o 
 
 ### Clientes:
 
-
 - Listar: `clientes/cliente/list`
 - Crear: `clientes/cliente/create`
 - Borrar: `clientes/cliente/delete/<int:pk>`
@@ -31,9 +30,19 @@ Al ingresar en Clientes o Entrenadores, hay un menu adicional para elegir Ver o 
 
 ## Futuras mejoras:
 
-VAN ACAAAAAAAA
+Crear vista detallada de cada modelo.
+Autenticacion por redes sociales.
+Mejorar visualmente la aplicacion.
 
-Autor:
+## Librerias externas
+
+Pillow
+
+## Autor
 Nombre: Ivan Sierra
 Comision: 57830
 LinkedIn: https://www.linkedin.com/in/isierra93/
+
+## Link videotutorial
+
+https://drive.google.com/drive/folders/1plUTxQgPfRZjmjvkOmD7riHi0G1IFIEJ?usp=drive_link

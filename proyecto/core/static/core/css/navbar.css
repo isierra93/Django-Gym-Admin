@@ -1,0 +1,35 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: flex-start; /* Alinea horizontalmente los elementos a la izquierda */
+    background-color: #333; /* Color de fondo de la navbar */
+    padding: 10px; /* Espacio interno para los botones */
+}
+
+/* Estilos para los botones */
+.navbar button {
+    margin-right: 10px; /* Espacio entre los botones */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos para los enlaces dentro de los botones */
+.navbar a {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color del texto */
+}
+
+/* Estilos para la imagen de perfil */
+.navbar img {
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    margin-right: 5px; /* Espacio entre la imagen y el nombre de usuario */
+}
+
+/* Estilos para el botón de cerrar sesión */
+.navbar form {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+}

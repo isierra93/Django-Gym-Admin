@@ -12,9 +12,5 @@
             Guardar
         </button>
     </form>
-    <button>
-        <a href="{% url 'clientes:index' %}">
-            Volver
-        </a>
-    </button>
+    {% include 'clientes/partials/volver_cliente_list.html' %}
 {% endblock main %}

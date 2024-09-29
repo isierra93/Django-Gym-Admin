@@ -12,9 +12,5 @@
             Guardar
         </button>
     </form>
-    <button>
-        <a href="{% url 'entrenadores:clase_list' %}">
-            Volver a Clases
-        </a>
-    </button>
+    {% include 'entrenadores/partials/volver_clase_list.html' %}
 {% endblock main %}
