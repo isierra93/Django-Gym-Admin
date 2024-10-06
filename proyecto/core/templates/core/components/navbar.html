@@ -1,3 +1,4 @@
+{% load static %}
 <div class="navbar">
     <button>
         <a href="{% url 'core:index' %}">Inicio</a>
@@ -17,10 +18,12 @@
     </button>
     <button>
         <a href="{% url 'accounts:profile' %}">
-        {{ user.username }}
-        {% if user.empleado.avatar %}
-        <img src="{{user.empleado.avatar.url}}" alt="Imagen de perfil" height="50px" width="50px">
-        {% endif %}
+                {{ user.username }}
+            {% if user.empleado.avatar %}
+                <img src="{{user.empleado.avatar.url}}" alt="Imagen de perfil" height="50px" width="50px">
+            {% else %}
+                <img src="{% static 'core/img/idstockphoto.jpg' %}" alt="Imagen de perfil predeterminada" height="25px" width="25px">
+            {% endif %}
         </a>
     </button>
     <form action="{% url 'accounts:logout' %}" method="post">
